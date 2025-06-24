@@ -1,22 +1,37 @@
+[![Java CI with Maven](https://github.com/kai-niemi/batch-demo/actions/workflows/maven.yml/badge.svg)](https://github.com/kai-niemi/batch-demo/actions/workflows/maven.yml)
+
+<!-- TOC -->
+* [Introduction](#introduction)
+  * [Compatibility](#compatibility)
+* [Building and Running](#building-and-running)
+  * [Install the JDK](#install-the-jdk)
+  * [Clone the project](#clone-the-project)
+  * [Build the artifact](#build-the-artifact)
+  * [Running](#running)
+* [Terms of Use](#terms-of-use)
+<!-- TOC -->
+
 # Introduction
 
-A simple batch insert load testing tool for CockroachDB. Supports
-both ordinary JDBC batch statements and `insert into select` using arrays.
+A simple batch insert load testing tool for CockroachDB. 
+
+Features:
+
+- Supports both ordinary JDBC large batch statements 
+and `insert into .. select` using arrays. 
+- Table names and column count/size can be customized.
+- Either virtual threads (JDK21+) or platform threads
+- Connection pooling via Hikari
+- Datasource proxy SQL trace logging via TTDDYY
 
 ## Compatibility
 
-- JDK21
+- JDK21+
 - MacOS (main platform)
 - Linux
 - CockroachDB
 
 # Building and Running
-
-## Prerequisites
-
-- Java 21+ JDK
-    - https://openjdk.org/projects/jdk/21/
-    - https://www.oracle.com/java/technologies/downloads/#java21
 
 ## Install the JDK
 
@@ -32,7 +47,7 @@ Ubuntu:
 
 ## Clone the project
 
-    git clone git@github.com:kai-niemi/batch-demo && cd hose
+    git clone git@github.com:kai-niemi/batch-demo && cd batch-demo
 
 ## Build the artifact
 
