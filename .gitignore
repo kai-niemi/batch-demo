@@ -10,3 +10,4 @@ cmd.txt
 .DS_Store?
 Thumbs.db
 /bash.lnk
+/dependency-reduced-pom.xml

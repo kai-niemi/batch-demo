@@ -17,7 +17,7 @@ import io.cockroachdb.batch.jdbc.JdbcUtils;
 import io.cockroachdb.batch.util.Assert;
 import io.cockroachdb.batch.util.RandomData;
 
-public class BatchInsertTask extends AbstractDatabaseTask {
+public class InsertTask extends AbstractDatabaseTask {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private static final String TABLE_NAME = "t_test";

@@ -7,7 +7,7 @@ import javax.sql.DataSource;
  *
  * @author Kai Niemi
  */
-public abstract class AbstractDatabaseTask implements BatchTask, DataSourceAware {
+public abstract class AbstractDatabaseTask implements Task, DataSourceAware {
     private DataSource dataSource;
 
     @Override

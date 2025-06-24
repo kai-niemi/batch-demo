@@ -6,7 +6,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import io.cockroachdb.batch.BatchTask;
+import io.cockroachdb.batch.Task;
 import io.cockroachdb.batch.util.Metrics;
 
 /**
@@ -45,7 +45,7 @@ public class MetricsPrinter {
     public void printMetrics(int limit) {
         AtomicInteger i = new AtomicInteger();
 
-        final List<Workload<BatchTask>> workloads = workloadManager.getWorkloads(WorkloadStatus.RUNNING);
+        final List<Workload<Task>> workloads = workloadManager.getWorkloads(WorkloadStatus.RUNNING);
 
         workloads.stream()
                 .limit(limit)

@@ -8,7 +8,7 @@ import java.util.Map;
  * @author Kai Niemi
  */
 @FunctionalInterface
-public interface BatchTask {
+public interface Task {
     /**
      * Invoked once prior to task execution providing an opportunity to initialize things.
      *

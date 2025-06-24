@@ -12,7 +12,7 @@ import io.cockroachdb.batch.workload.RecoverableException;
  *
  * @author Kai Niemi
  */
-public class FakeTask implements BatchTask {
+public class FakeTask implements Task {
     private long minWaitMillis;
 
     private long maxWaitMillis;

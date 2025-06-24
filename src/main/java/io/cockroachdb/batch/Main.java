@@ -28,10 +28,10 @@ import io.cockroachdb.batch.workload.WorkloadManager;
 
 public class Main {
     // Add all tasks here with unique IDs / aliases
-    private static final Map<String, BatchTask> AVAILABLE_TASKS = Map.of(
+    private static final Map<String, Task> AVAILABLE_TASKS = Map.of(
             "fake", new FakeTask(),
             "array-insert", new ArrayInsertTask(),
-            "batch-insert", new BatchInsertTask()
+            "batch-insert", new InsertTask()
     );
 
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
@@ -40,7 +40,7 @@ public class Main {
 
     private final Map<String, String> params;
 
-    private Map<String, BatchTask> matchingTasks = Map.of();
+    private Map<String, Task> matchingTasks = Map.of();
 
     public Main(ExecutorService executorService, Map<String, String> params) {
         this.workloadManager = new WorkloadManager(executorService);

@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.cockroachdb.batch.BatchTask;
+import io.cockroachdb.batch.Task;
 import io.cockroachdb.batch.jdbc.DataAccessException;
 import io.cockroachdb.batch.util.Metrics;
 import io.cockroachdb.batch.util.Problem;
@@ -63,7 +63,7 @@ public class WorkloadManager {
 
     private final AtomicInteger monotonicId = new AtomicInteger();
 
-    private final List<Workload<BatchTask>> workloads = new LinkedList<>();
+    private final List<Workload<Task>> workloads = new LinkedList<>();
 
     private final ExecutorService executorService;
 
@@ -71,13 +71,13 @@ public class WorkloadManager {
         this.executorService = executorService;
     }
 
-    public void submitWorkload(BatchTask task, int batchSize,
+    public void submitWorkload(Task task, int batchSize,
                                Predicate<Integer> completion, String name) {
         final Metrics metrics = Metrics.empty();
 
         final LinkedList<Problem> problems = new LinkedList<>();
 
-        final Future<BatchTask> future = executorService.submit(() -> {
+        final Future<Task> future = executorService.submit(() -> {
             AtomicInteger totalCalls = new AtomicInteger();
             AtomicInteger fails = new AtomicInteger();
 
@@ -164,13 +164,13 @@ public class WorkloadManager {
         return executorService;
     }
 
-    public List<Workload<BatchTask>> getWorkloads() {
+    public List<Workload<Task>> getWorkloads() {
         return new LinkedList<>(workloads)
                 .stream()
                 .toList();
     }
 
-    public List<Workload<BatchTask>> getWorkloads(WorkloadStatus status) {
+    public List<Workload<Task>> getWorkloads(WorkloadStatus status) {
         return new LinkedList<>(workloads)
                 .stream()
                 .filter(taskWorkload -> taskWorkload.getStatus().equals(status))

@@ -1,23 +1,18 @@
 package io.cockroachdb.batch.workload;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.Future;
 
-import io.cockroachdb.batch.util.DurationUtils;
 import io.cockroachdb.batch.util.Metrics;
 import io.cockroachdb.batch.util.Problem;
 
 /**
  * Wrapper for a background task pending completion.
  *
- * @author Kai Niemi
  * @param <T>
+ * @author Kai Niemi
  */
 public class Workload<T> {
     private final Integer id;
