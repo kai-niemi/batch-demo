@@ -31,7 +31,7 @@ public class Main {
     private static final Map<String, Task> AVAILABLE_TASKS = Map.of(
             "fake", new FakeTask(),
             "array-insert", new ArrayInsertTask(),
-            "batch-insert", new InsertTask()
+            "batch-insert", new BatchInsertTask()
     );
 
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
@@ -137,29 +137,30 @@ public class Main {
 
         System.out.println();
         System.out.println("Database options include:");
-        System.out.println("--url <url>                  Connection URL (jdbc:postgresql://localhost:26257/defaultdb)");
-        System.out.println("--user <user>                Login user name (root)");
-        System.out.println("--password <secret>          Login password");
-        System.out.println("--trace                      Enable SQL trace log");
+        System.out.println("--url <url>                   Connection URL (jdbc:postgresql://localhost:26257/defaultdb)");
+        System.out.println("--user <user>                 Login user name (root)");
+        System.out.println("--password <secret>           Login password");
+        System.out.println("--isolation <isolation level> Transaction isolation level (TRANSACTION_SERIALIZABLE)");
+        System.out.println("--trace                       Enable SQL trace log");
 
         System.out.println();
         System.out.println("Concurrency options include:");
-        System.out.println("--pool-size <size>           Max connection pool size (500)");
-        System.out.println("--concurrency <level>        Number of threads per task (1)");
-        System.out.println("--concurrency-limit <level>  Enables fixed-sized platform threads if non-zero. "
+        System.out.println("--pool-size <size>            Max connection pool size (500)");
+        System.out.println("--concurrency <level>         Number of threads per task (1)");
+        System.out.println("--concurrency-limit <level>   Enables fixed-sized platform threads if non-zero. "
                            + "Default is unbounded virtual threads (-1)");
 
         System.out.println();
         System.out.println("Workload options include:");
-        System.out.println("--batch-size <number>        Task batch size (64)");
-        System.out.println("--duration <time>            Execution duration (60s)");
-        System.out.println("--warmup <time>              Warmup duration (0s)");
-        System.out.println("--permits <number>           Peak requests/sec at end of warmup (5k)");
+        System.out.println("--batch-size <number>         Task batch size (64)");
+        System.out.println("--duration <time>             Execution duration (60s)");
+        System.out.println("--warmup <time>               Warmup duration (0s)");
+        System.out.println("--permits <number>            Peak requests/sec at end of warmup (5k)");
 
         System.out.println();
         System.out.println("Task options include:");
-        System.out.println("--disable-metrics            Disable task performance metrics");
-        System.out.println("--param <k=v>                Custom task parameter tuple (see tasks for specific params)");
+        System.out.println("--disable-metrics             Disable task performance metrics");
+        System.out.println("--param <k=v>                 Custom task parameter tuple (see tasks for specific params)");
 
         System.exit(1);
     }
