@@ -1,0 +1,12 @@
+.idea/
+.tmp/
+target/
+*.iml
+*.ipr
+*.iws
+*.log
+cmd.txt
+.DS_Store
+.DS_Store?
+Thumbs.db
+/bash.lnk
